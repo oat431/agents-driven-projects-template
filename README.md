@@ -1,60 +1,59 @@
----
+# AI-SDLC Templates
 
-## 📚 The Full Set — 11 Templates
+Copy these into your project's `docs/` folder as needed. Start with the phase you're in — you don't need all of them on day one.
 
-```
-workspace\templates\
-├── 🎯 AGENTS.md          ← THE entry point. Always loaded.
-├── 🏗️ ARCHITECTURE.md     ← Design decisions, patterns, tech debt
-├── 🔌 API_PATTERNS.md     ← REST conventions, response shapes, auth
-├── 🗄️ DATABASE.md         ← Schema, naming, queries, migrations, N+1 rules
-├── 🧪 TESTING.md          ← Test pyramid, patterns, commands, coverage targets
-├── 🔒 SECURITY.md         ← Auth flow, hard rules, sensitive data, attack defense
-├── 📋 CONVENTIONS.md      ← Code style, naming, git commits, PR guidelines
-├── 🚀 DEPLOYMENT.md       ← Environments, CI/CD, health checks, rollback
-├── 🛠️ DEVELOPMENT.md      ← Zero-to-running setup, env vars, troubleshooting
-├── 📝 TASKS.md            ← Active work, backlog, bugs, tech debt
-└── 📖 GLOSSARY.md         ← Domain terms, state machines, team structure
+## Quick Start
+
+```bash
+# In your project root:
+mkdir docs
+cp templates/3-development/AGENTS.md docs/
+cp templates/3-development/CONVENTIONS.md docs/
+# Fill them in ↓
 ```
 
----
+## Template Index
 
-## Which Files Matter Most
+```
+templates/
+│
+├── 📘 AI-SDLC.md                 ← Master methodology guide (start here)
+│
+├── 📂 1_REQUIREMENT/            ← What to build
+│   └── PRD.md                    ← Problem, user stories, metrics, scope
+│
+├── 📂 2_DESIGN/                  ← How to build it
+│   ├── DESIGN_SPEC.md            ← Technical design, data flow, API contract
+│   └── ARCHITECTURE.md           ← Design decisions, patterns, tech debt
+│
+├── 📂 3_DEVELOPMENT/             ← Build it
+│   ├── AGENTS.md                 ← Project identity, stack, commands ★
+│   ├── CONVENTIONS.md            ← Code style, naming, git, PR rules
+│   ├── DATABASE.md               ← Schema, queries, migrations
+│   ├── API_PATTERNS.md           ← REST conventions, response shapes
+│   └── GLOSSARY.md               ← Domain terms, state machines
+│
+├── 📂 4_TESTING/                 ← Verify it
+│   ├── TESTING.md                ← Test pyramid, patterns, coverage
+│   └── SECURITY.md               ← Auth rules, attack defense, hard constraints
+│
+├── 📂 5_DEPLOYMENT/              ← Ship it
+│   ├── DEPLOYMENT.md             ← Environments, CI/CD, rollback
+│   └── DEVELOPMENT.md            ← Local setup, env vars, troubleshooting
+│
+└── 📂 6_MAINTENANCE/             ← Keep it alive
+    ├── RUNBOOK.md                ← Ops commands, incident response
+    ├── MONITORING.md             ← Dashboards, metrics, alerts
+    ├── CHANGELOG.md              ← Release history, migration guides
+    └── TASKS.md                  ← Active work, backlog, tech debt
+```
 
-You don't need all 11 in every project. Here's the order:
+★ = absolute minimum. Start here.
 
-| Priority | File | When to Create |
-|---|---|---|
-| 🔑 Must | **AGENTS.md** | Every project. No exceptions. |
-| 🔑 Must | **CONVENTIONS.md** | Any project with >1 developer (or 1 dev + AI agent) |
-| 🟡 High | **DATABASE.md** | Any project with a database |
-| 🟡 High | **API_PATTERNS.md** | Any project with REST/GraphQL endpoints |
-| 🟡 High | **SECURITY.md** | Auth, payments, PII — anything sensitive |
-| 🟢 Medium | **ARCHITECTURE.md** | When design decisions pile up (>3 major choices) |
-| 🟢 Medium | **TESTING.md** | When test patterns are non-obvious |
-| 🟢 Medium | **DEPLOYMENT.md** | Multi-environment or >1 person can deploy |
-| ⚪ Nice | **DEVELOPMENT.md** | Good for onboarding. Can live in README instead. |
-| ⚪ Nice | **TASKS.md** | For AI agent workflow tracking |
-| ⚪ Nice | **GLOSSARY.md** | Domain-heavy projects or cross-team work |
+## Per-Phase READMEs
 
----
-
-## How Agents Use These
-
-The pattern is:
-
-1. **AGENTS.md** loads every session — keep it tight (~1-2 KB)
-2. **AGENTS.md links to others** — agent loads them on-demand when relevant
-3. **Example** from AGENTS.md:
-   ```markdown
-   ## Further Context
-   - Database patterns: [DATABASE.md](./DATABASE.md)
-   - API conventions: [API_PATTERNS.md](./API_PATTERNS.md)
-   - Security rules: [SECURITY.md](./SECURITY.md) (read before any auth/payment code)
-   ```
-
-The agent reads AGENTS.md → sees you're working on payments → loads SECURITY.md + DATABASE.md → writes code that follows both.
-
----
-
-When you're ready to spin up that personal project, tell me the directory and I'll read your stack and fill these out for real. 🔮
+Each phase folder contains a README.md with:
+- What this phase covers
+- When to use each template
+- Example prompts for AI agents
+- Deliverables checklist
