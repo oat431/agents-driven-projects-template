@@ -13,7 +13,8 @@
 │
 ├── 📐 SYSTEM (cross-cutting — both sides)
 │   ├── ARCHITECTURE.md           ← System-wide decisions, patterns, tech debt
-│   └── DIAGRAMS/                 ← Mermaid diagrams: ERD, sequence, deployment
+│   ├── ADR.md                    ← Architecture Decision Records (why we chose X)
+│   └── DIAGRAMS/                 ← Mermaid diagrams: ERD, sequence, deployment, component
 │
 ├── ⚙️ BACKEND                     ← How services, APIs, and data work
 │   ├── DESIGN_SPEC.md            ← Technical design per feature (API + DB + security)

@@ -9,13 +9,15 @@
 | File | Use When |
 |------|----------|
 | `PRD.md` | Every feature. Problem statement, user stories, success metrics, scope boundaries. |
+| `SRS/SRS_TEMPLATE.md` | Formal projects. IEEE 830 spec. Multi-module, compliance, or handoff. |
 
 ## Workflow
 
 1. Write PRD.md (or have the agent draft it from your description)
 2. Agent reads → asks clarifying questions → identifies edge cases
 3. You answer → agent updates PRD.md
-4. PRD.md approved → move to Phase 2 (Design)
+4. (Optional) For formal projects: expand PRD into SRS with traceable requirements
+5. PRD.md approved → move to Phase 2 (Design)
 
 ## Example Prompt
 
