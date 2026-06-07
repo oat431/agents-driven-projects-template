@@ -1,5 +1,3 @@
----
-
 ## 📚 The Full Set — 11 Templates
 
 ```
