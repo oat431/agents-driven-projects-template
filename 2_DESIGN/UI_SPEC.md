@@ -11,6 +11,7 @@
 ### Colors
 
 #### Primary Palette
+
 | Token | Hex | CSS Variable | Usage |
 |-------|-----|-------------|-------|
 | Primary | `#7C3AED` | `--color-primary` | Main actions, links, brand accents |
@@ -18,6 +19,7 @@
 | Primary Dark | `#5B21B6` | `--color-primary-dark` | Active/pressed states |
 
 #### Neutral Palette
+
 | Token | Hex | CSS Variable | Usage |
 |-------|-----|-------------|-------|
 | Neutral 50 | `#FAFAFA` | `--color-neutral-50` | Page background |
@@ -29,6 +31,7 @@
 | Neutral 900 | `#171717` | `--color-neutral-900` | Strong emphasis |
 
 #### Semantic Colors
+
 | Token | Hex | Usage |
 |-------|-----|-------|
 | Success | `#16A34A` | Confirmation, success toasts |
@@ -45,6 +48,7 @@
 - **Fallback strategy:** System fonts for performance
 
 #### Scale
+
 | Level | Size | Line Height | Weight | Usage |
 |-------|------|-------------|--------|-------|
 | H1 | 2rem / 32px | 1.2 | 700 | Page titles |
@@ -56,6 +60,7 @@
 | Code | 0.875rem / 14px | 1.5 | 400 | Inline code |
 
 ### Spacing Scale
+
 ```
 4px  → xs   (gap between icon + text)
 8px  → sm   (inner padding, tight gaps)
@@ -66,9 +71,11 @@
 48px → 3xl  (page-level separation)
 64px → 4xl  (layout sections)
 ```
+
 **Rule:** Always use multiples of 4px. Never use arbitrary values.
 
 ### Border Radius
+
 | Token | Value | Usage |
 |-------|-------|-------|
 | sm | 4px | Inputs, badges |
@@ -77,11 +84,13 @@
 | full | 9999px | Pills, avatars |
 
 ### Shadows
+
 ```css
 --shadow-sm:  0 1px 2px rgba(0,0,0,0.05);
 --shadow-md:  0 4px 6px rgba(0,0,0,0.07);
 --shadow-lg:  0 10px 25px rgba(0,0,0,0.1);
 ```
+
 **Rule:** Use shadows sparingly. Only to indicate elevation (cards, modals, dropdowns). Never decorative.
 
 ## Component Library
@@ -93,6 +102,7 @@
 - **Never:** hand-write modal, tooltip, or select logic — use shadcn/ui
 
 ### Custom Components (Project-Specific)
+
 | Component | shadcn Base | Modifications |
 |-----------|------------|---------------|
 | `DataTable` | Table | + sorting, pagination, row selection |
@@ -102,6 +112,7 @@
 ## Layout System
 
 ### Page Structure
+
 ```
 ┌──────────────────────────────────────┐
 │  SIDEBAR (240px)    │   CONTENT     │
@@ -115,6 +126,7 @@
 ```
 
 ### Breakpoints
+
 | Name | Width | Target |
 |------|-------|--------|
 | mobile | < 640px | Phone portrait |
@@ -123,6 +135,7 @@
 | wide | > 1280px | Large screens |
 
 ### Container Max-Widths
+
 - Page content: `max-w-7xl` (1280px)
 - Card grid: `max-w-6xl` (1152px)
 - Form: `max-w-2xl` (672px)
@@ -131,26 +144,31 @@
 ## Interaction Patterns
 
 ### Buttons
+
 ```
 Primary:   bg-primary text-white hover:bg-primary-dark
 Secondary: bg-neutral-100 text-neutral-800 hover:bg-neutral-200
 Ghost:     bg-transparent hover:bg-neutral-100
 Danger:    bg-error text-white hover:bg-red-700
 ```
+
 Sizes: `sm` (h-8), `md` (h-10), `lg` (h-12)
 
 ### Forms
+
 - Labels: above input. `font-medium text-sm`.
 - Inputs: `h-10 rounded-md border-neutral-200 focus:border-primary focus:ring-1`
 - Error: red border + red text below input
 - Submit: primary button, right-aligned or full-width on mobile
 
 ### Feedback States
+
 - **Loading:** Skeleton screens for initial load. Spinner for button actions.
 - **Empty:** Illustration + "No items yet" + CTA button.
 - **Error:** Toast notification (top-right). Retry button for failed fetches.
 
 ## Accessibility Requirements
+
 - Color contrast: WCAG AA minimum (4.5:1 for text, 3:1 for large text).
 - Focus states: visible ring on all interactive elements (`focus-visible:ring-2`).
 - Labels: every input has a visible or aria label.
@@ -158,6 +176,7 @@ Sizes: `sm` (h-8), `md` (h-10), `lg` (h-12)
 - Keyboard: Tab order is logical. Enter/Space activates. Escape closes modals.
 
 ## Icons
+
 - **Library:** Lucide React (via `lucide-react`)
 - **Size:** 16px inline, 20px standalone, 24px in buttons
 - **Never:** emoji as icons, mismatched icon sets

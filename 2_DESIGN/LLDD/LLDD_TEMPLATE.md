@@ -6,6 +6,7 @@
 -->
 
 ## Document Control
+
 - **Document ID:** LLDD-XXX
 - **Component:** <!-- e.g., TotpService -->
 - **Version:** 1.0
@@ -21,6 +22,7 @@
 **TotpService** generates TOTP secrets, creates QR code URIs, and verifies TOTP codes per RFC 6238.
 
 ### 1.2 Place in Module
+
 ```
 TwoFactorController
     │

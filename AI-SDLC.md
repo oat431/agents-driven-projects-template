@@ -101,6 +101,7 @@ PRD.md is approved → move to Design
 ### Context Files
 
 **System (both sides):**
+
 | File | Purpose | Level |
 |------|---------|-------|
 | **ARCHITECTURE.md** | System-wide decisions, patterns, tech debt | Must |
@@ -108,6 +109,7 @@ PRD.md is approved → move to Design
 | DIAGRAMS/ | Mermaid ERD, sequence, deployment, component | High |
 
 **Backend:**
+
 | File | Purpose | Level |
 |------|---------|-------|
 | **DESIGN_SPEC.md** | Technical design, data flow, API contract | Must |
@@ -115,6 +117,7 @@ PRD.md is approved → move to Design
 | LLDD/LLDD_TEMPLATE.md | Low-Level Design: class detail, algorithms | If complex module |
 
 **Frontend:**
+
 | File | Purpose | Level |
 |------|---------|-------|
 | UI_SPEC.md | Design tokens: colors, fonts, spacing, radius | If UI exists |

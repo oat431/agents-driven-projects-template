@@ -45,6 +45,7 @@ Every UAT scenario links back to a requirement.
 **Precondition:** User is logged in. 2FA is not yet enabled.
 
 **Steps:**
+
 1. Navigate to Settings → Security → Two-Factor Authentication
 2. Click "Enable 2FA"
 3. Observe QR code displayed
@@ -53,12 +54,14 @@ Every UAT scenario links back to a requirement.
 6. Click "Verify"
 
 **Expected Result:**
+
 - ✅ "2FA enabled successfully" message appears
 - ✅ 10 recovery codes are displayed (one-time view)
 - ✅ Status shows "2FA: Active"
 - ✅ User can copy/download recovery codes
 
 **Failure Conditions:**
+
 - ❌ Invalid TOTP code: error message "Invalid code. Please try again."
 - ❌ Already enabled: button shows "Disable 2FA" instead of "Enable 2FA"
 - ❌ Rate limited after 5 failed attempts: "Too many attempts. Please wait 15 minutes."
@@ -73,11 +76,13 @@ Every UAT scenario links back to a requirement.
 **Priority:** P1  
 
 **Steps:**
+
 1. Complete UAT-01 steps 1–4
 2. Enter an incorrect 6-digit code (e.g., `000000`)
 3. Click "Verify"
 
 **Expected Result:**
+
 - ✅ Error: "Invalid code. Please try again."
 - ✅ QR code remains visible (not dismissed)
 - ✅ Attempt counter increments (shown after 3rd failure)
@@ -92,6 +97,7 @@ Every UAT scenario links back to a requirement.
 **Precondition:** User has 2FA enabled (from UAT-01).
 
 **Steps:**
+
 1. Log out
 2. Navigate to login page
 3. Enter email + password → click "Sign In"
@@ -100,6 +106,7 @@ Every UAT scenario links back to a requirement.
 6. Enter code → click "Verify"
 
 **Expected Result:**
+
 - ✅ Redirected to dashboard
 - ✅ JWT contains `2fa_verified` claim
 - ✅ Session persists (no re-prompt for 2FA on page refresh)
@@ -109,6 +116,7 @@ Every UAT scenario links back to a requirement.
 ## UAT Checklist by Feature
 
 ### Feature: Two-Factor Authentication
+
 - [ ] UAT-01: Enable 2FA (happy path)
 - [ ] UAT-02: Invalid TOTP code
 - [ ] UAT-03: Recovery code generation + single-use validation
@@ -123,6 +131,7 @@ Every UAT scenario links back to a requirement.
 ---
 
 ## Rules for AI Agents
+
 1. **Every SRS user story → at least 1 UAT scenario.** Traceable. Verifiable.
 2. **Automate the automatable.** E2E tests cover happy path + critical error paths.
 3. **Manual for UX.** Visual polish, animation feel, accessibility — human eye required.

@@ -9,9 +9,10 @@
 
 ## 🔧 BACKEND
 
-### <!-- Java + Spring Boot + JUnit 5 -->
+### Java + Spring Boot + JUnit 5
 
 #### Test Class Template
+
 ```java
 package com.example.userservice;
 
@@ -72,6 +73,7 @@ class UserServiceTest {
 ```
 
 #### What to Mock
+
 - ✅ Repositories (in service tests)
 - ✅ External API clients (RestTemplate, WebClient)
 - ✅ Clock (`java.time.Clock` — inject, don't use `Instant.now()` directly)
@@ -79,6 +81,7 @@ class UserServiceTest {
 - ❌ Value objects / DTOs (just create real instances)
 
 #### Common Patterns
+
 ```java
 // Testing exceptions
 assertThatThrownBy(() -> service.delete(userId))
@@ -106,7 +109,7 @@ void validateEmail_WithInvalidInput_ThrowsValidationException(String email) {
 
 ---
 
-### <!-- Python + FastAPI + pytest -->
+### Python + FastAPI + pytest
 
 ```python
 import pytest
@@ -132,7 +135,7 @@ class TestShortenerService:
 
 ## 🎨 FRONTEND
 
-### <!-- React + Vitest + Testing Library -->
+### React + Vitest + Testing Library
 
 ```typescript
 // ProductCard.test.tsx
@@ -190,7 +193,7 @@ describe('ProductCard', () => {
 });
 ```
 
-### <!-- Vue 3 + Vitest + vue/test-utils -->
+### Vue 3 + Vitest + vue/test-utils
 
 ```typescript
 // ProductCard.test.ts

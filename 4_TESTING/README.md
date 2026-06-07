@@ -62,6 +62,7 @@ PRD.md / SRS           TEST_STRATEGY.md
 ## Workflow
 
 ### For a New Feature (Full Cycle)
+
 1. Agent reads PRD.md / SRS → extracts user stories
 2. Agent writes UNIT_TEST for business logic + UI components
 3. Agent writes INTEGRATION_TEST for API boundaries
@@ -71,6 +72,7 @@ PRD.md / SRS           TEST_STRATEGY.md
 7. Human reviews UAT → signs off → feature complete
 
 ### Example Prompt (Full Testing)
+
 ```
 "Write a complete test suite for the 2FA feature:
 
@@ -83,6 +85,7 @@ PRD.md / SRS           TEST_STRATEGY.md
 ```
 
 ### For a Bug Fix
+
 ```
 "This bug: [describe]. Write a regression test that fails before the fix
 and passes after. Follow UNIT_TEST.md patterns. Run full suite to ensure
@@ -103,6 +106,7 @@ nothing else broke."
 ---
 
 ## Deliverables
+
 - [ ] TEST_STRATEGY.md defines coverage targets
 - [ ] Unit tests cover business logic (≥80%)
 - [ ] Integration tests cover API boundaries

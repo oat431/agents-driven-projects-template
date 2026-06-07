@@ -51,6 +51,7 @@ Each page should be documented with:
 <!-- One sentence. What does the user accomplish here? -->
 
 **Data Requirements:**
+
 | Data | Source | Loading Strategy |
 |------|--------|-----------------|
 | Product detail | `GET /api/v1/products/{slug}` | SSR (good for SEO) |
@@ -58,6 +59,7 @@ Each page should be documented with:
 | User's cart | Pinia store | Already loaded |
 
 **States to Handle:**
+
 - [ ] Loading: Product skeleton (image placeholder + text lines)
 - [ ] Not Found: 404 illustration + "Product not found" + back to products
 - [ ] Error: Toast + retry button
@@ -65,12 +67,14 @@ Each page should be documented with:
 - [ ] Success: Full product page
 
 **Key Interactions:**
+
 - Add to cart button → optimistic update + toast
 - Quantity selector → debounced, max = stock count
 - Image gallery → click to zoom, swipe on mobile
 - Share button → copy link to clipboard
 
 **Edge Cases:**
+
 - Out of stock: Show "Notify me" instead of "Add to cart"
 - Sale price: Show original price strikethrough + sale badge
 - Long product name: Truncate at 2 lines in cards, full on detail page

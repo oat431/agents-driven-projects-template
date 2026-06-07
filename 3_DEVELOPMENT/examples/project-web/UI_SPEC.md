@@ -3,6 +3,7 @@
 ## Brand Identity
 
 ### Colors
+
 ```css
 :root {
   --color-primary: #7C3AED;
@@ -24,12 +25,14 @@
 ```
 
 ### Typography
+
 - **Font:** Inter (headings), Sarabun (body — Thai-friendly)
 - **Scale:** 14/16/18/20/24/32px
 - **Weights:** 400 (body), 500 (label), 600 (heading), 700 (title)
 - **Line height:** 1.5 (body), 1.3 (heading)
 
 ### Spacing (Tailwind)
+
 - `p-2` (8px) — icon padding
 - `p-4` (16px) — card padding
 - `p-6` (24px) — page padding
@@ -39,6 +42,7 @@
 ### Component Patterns
 
 **DataTable (reusable):**
+
 ```tsx
 <DataTable
   columns={columns}
@@ -53,6 +57,7 @@
 ```
 
 **StatCard:**
+
 ```tsx
 <StatCard
   title="Active Users"
@@ -64,6 +69,7 @@
 ```
 
 ### Layout
+
 ```
 ┌──────────────────────────────────────────────┐
 │ SIDEBAR (w-64)       │ HEADER (h-16)         │
@@ -83,6 +89,7 @@
 ```
 
 ### Responsive
+
 | Breakpoint | Layout |
 |-----------|--------|
 | < 768px | Sidebar → hamburger drawer. Table → cards. |

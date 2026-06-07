@@ -132,6 +132,7 @@ ORDER BY idx_scan_pct;
 ```
 
 ## Rules for AI Agents
+
 1. **K6 scripts are code.** Review, test, maintain like production code.
 2. **Test against staging, never production.** Unless read-only and off-peak.
 3. **Thresholds are gates.** P95 > target = failed test = fix before deploy.

@@ -6,6 +6,7 @@
 -->
 
 ## Document Control
+
 - **Document ID:** HLDD-XXX
 - **Module:** <!-- e.g., Auth Service -->
 - **Version:** 1.0
@@ -20,6 +21,7 @@
 <!-- One paragraph. What does this module do in the system? -->
 
 ### 1.2 Place in System
+
 ```
 ┌──────────────────────────────────────────┐
 │              API GATEWAY                  │
@@ -148,18 +150,21 @@ sequenceDiagram
 ## 6. Cross-Cutting Concerns
 
 ### Error Handling
+
 ```
 Controller → throws → GlobalExceptionHandler
                      → maps to ApiResponse { success: false, error: { code, message } }
 ```
 
 ### Logging
+
 - **INFO:** Login success/failure, 2FA enable/disable, token refresh
 - **WARN:** Rate limit hit, suspicious activity
 - **ERROR:** Unexpected exceptions, dependency failures
 - **Never:** Passwords, tokens, recovery codes, TOTP secrets
 
 ### Monitoring
+
 - Login rate, success rate, failure rate (by reason)
 - 2FA adoption rate
 - Token refresh rate

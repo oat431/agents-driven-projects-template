@@ -54,6 +54,7 @@ no gates   smoke    full     UAT sign-   perf test   canary →
 ## Workflow
 
 ### Standard Release
+
 1. All tests green on `develop`
 2. Manual promote: DEV → QA → UAT (per DEPLOYMENT_WORKFLOW.md)
 3. Product owner signs off UAT
@@ -63,6 +64,7 @@ no gates   smoke    full     UAT sign-   perf test   canary →
 7. Post-deploy monitoring (30 min)
 
 ### Hotfix
+
 1. Branch from `main`: `hotfix/xxx`
 2. Fix + test + PR → merge to `main`
 3. Deploy directly to STAGING (skip DEV/QA)
@@ -70,6 +72,7 @@ no gates   smoke    full     UAT sign-   perf test   canary →
 5. Cherry-pick fix back to `develop`
 
 ## Example Prompt (Full Deploy)
+
 ```
 "Deploy v2.4.0 to production per DEPLOYMENT_WORKFLOW.md.
 
@@ -93,6 +96,7 @@ Post-deploy:
 ---
 
 ## Deliverables
+
 - [ ] CI/CD pipeline green
 - [ ] Security scan clean (no HIGH/CRITICAL)
 - [ ] Database migration backward-compatible

@@ -3,6 +3,7 @@
 ## REST Conventions
 
 ### URL Structure
+
 ```
 GET    /api/v1/users               — List (paginated)
 GET    /api/v1/users/{id}          — Get by ID

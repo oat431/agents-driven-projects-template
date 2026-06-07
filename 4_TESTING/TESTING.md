@@ -44,6 +44,7 @@
 ```
 
 ## Coverage Targets
+
 - Overall: 80% line coverage
 - Service layer: 90%+ (business logic)
 - Controllers: 70% (thin, tested via integration)

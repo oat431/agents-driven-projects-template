@@ -96,6 +96,7 @@ templates/
 ## Per-Phase READMEs
 
 Each phase folder contains a README.md with:
+
 - What this phase covers
 - When to use each template
 - Example prompts for AI agents

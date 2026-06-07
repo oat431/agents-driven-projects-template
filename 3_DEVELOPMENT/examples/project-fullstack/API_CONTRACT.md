@@ -5,6 +5,7 @@
 ## Auth
 
 ### POST /api/v1/auth/login
+
 ```
 Request:  { email, password }
 Response: { accessToken, refreshToken, user: { id, email, name, role } }
@@ -12,6 +13,7 @@ Errors:   401 INVALID_CREDENTIALS | 429 RATE_LIMITED
 ```
 
 ### POST /api/v1/auth/refresh
+
 ```
 Request:  (refresh token in httpOnly cookie)
 Response: { accessToken, refreshToken }
@@ -21,6 +23,7 @@ Errors:   401 TOKEN_EXPIRED → redirect to /login
 ## Products
 
 ### GET /api/v1/products
+
 ```
 Query:    ?page=1&size=20&search=wireless&minPrice=100&maxPrice=500&sort=price,asc
 Response: {
@@ -31,6 +34,7 @@ Web:      ProductGrid → product cards. Server-side pagination.
 ```
 
 ### GET /api/v1/products/{slug}
+
 ```
 Response: { id, slug, name, description, price, compareAtPrice, images[], inStock, variants[] }
 Web:      Product detail page. SSR (good for SEO). States: loading, not found, error.
@@ -39,6 +43,7 @@ Web:      Product detail page. SSR (good for SEO). States: loading, not found, e
 ## Orders
 
 ### GET /api/v1/orders
+
 ```
 Query:    ?page=1&size=20&status=pending&sort=createdAt,desc
 Response: {
@@ -49,6 +54,7 @@ Web:      OrderTable with status filter dropdown.
 ```
 
 ### GET /api/v1/orders/{id}
+
 ```
 Response: {
   id, status, total, items: [{ product, quantity, unitPrice }],
@@ -70,6 +76,7 @@ Web:      Order detail page. Timeline component for status history.
 | SERVER_ERROR | 500 | Toast "Something went wrong" + retry |
 
 ## Pagination Contract
+
 - Request: `page` (1-indexed), `size` (default 20, max 100)
 - Response: always includes `meta` object
 - Frontend DataTable uses `totalItems` for total pages

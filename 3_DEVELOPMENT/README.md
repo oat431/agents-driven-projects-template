@@ -81,6 +81,7 @@ docs/
 6. Repeat for next feature
 
 ## Deliverables
+
 - [ ] Feature implemented per design
 - [ ] Tests pass (unit + integration)
 - [ ] Lint/checkstyle clean

@@ -7,11 +7,13 @@
 -->
 
 ## Contract Ownership
+
 - **Backend owns** the implementation. The API is the source of truth.
 - **Frontend owns** this document. It describes what the frontend expects.
 - **Discrepancy** = bug. Fix the backend or update this doc.
 
 ## Base Configuration
+
 ```
 Base URL (dev):  http://localhost:8080/api/v1
 Base URL (prod): https://api.panomete.com/v1
@@ -24,6 +26,7 @@ Content-Type:    application/json
 ### Auth
 
 #### POST /auth/login
+
 ```
 Request:
 {
@@ -53,6 +56,7 @@ Frontend Usage:
 ```
 
 #### POST /auth/refresh
+
 ```
 Request: (no body — refresh token from cookie)
 
@@ -73,6 +77,7 @@ Frontend Usage:
 ### Users
 
 #### GET /users
+
 ```
 Query: ?page=1&size=20&search=john&role=ADMIN&sort=createdAt,desc
 
@@ -106,6 +111,7 @@ Frontend Usage:
 ### Products
 
 #### GET /products
+
 ```
 Query: ?page=1&size=20&search=wireless&minPrice=100&maxPrice=500&sort=price,asc
 
@@ -130,6 +136,7 @@ Response 200:
 ```
 
 ## Error Response (All Endpoints)
+
 ```json
 {
   "success": false,
@@ -142,6 +149,7 @@ Response 200:
 ```
 
 ## Error Codes the Frontend Handles
+
 | Code | Frontend Behavior |
 |------|-------------------|
 | `VALIDATION_ERROR` | Show field-level errors on form |
@@ -153,10 +161,12 @@ Response 200:
 | `SERVER_ERROR` | Toast "Something went wrong" + retry |
 
 ## Pagination Contract
+
 - **Request:** `page` (1-indexed), `size` (default 20, max 100).
 - **Response:** Always includes `meta` with `page`, `pageSize`, `totalItems`, `totalPages`.
 - **Frontend:** `DataTable` uses `totalItems` for page count, `page` for current page.
 
 ## Real-time / Polling (Future)
+
 - WebSocket for order status updates (planned v2.2).
 - Polling (30s interval) for dashboard stats until WebSocket ready.

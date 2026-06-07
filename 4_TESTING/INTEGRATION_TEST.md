@@ -9,7 +9,7 @@
 
 ## 🔧 BACKEND
 
-### <!-- Spring Boot + TestContainers -->
+### Spring Boot + TestContainers
 
 ```java
 @SpringBootTest(webEnvironment = RANDOM_PORT)
@@ -102,6 +102,7 @@ class AuthControllerIT {
 ```
 
 ### Integration Test Rules
+
 - ✅ Use real database (TestContainers or dedicated test DB). Never mock the DB.
 - ✅ Test the full slice: controller → service → repository → database.
 - ✅ Clean up before each test, not after (if test crashes, next one isn't polluted).
@@ -112,7 +113,7 @@ class AuthControllerIT {
 
 ## 🎨 FRONTEND (Component Integration)
 
-### <!-- Testing a form submission flow -->
+### Testing a form submission flow
 
 ```typescript
 // LoginForm.integration.test.tsx
@@ -158,6 +159,7 @@ it('shows error message on invalid login', async () => {
 ```
 
 ### MSW (Mock Service Worker) Rules
+
 - Define handlers for every endpoint the component calls.
 - Match happy path, error path, and edge cases.
 - Use `server.use()` to override handlers for specific tests.

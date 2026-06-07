@@ -37,11 +37,13 @@ ssh prod "docker compose ps && curl -s localhost:8081/actuator/health"
 ## Promotion Gates
 
 ### LOCAL → DEV
+
 - [ ] Tests pass locally
 - [ ] `docker compose build` succeeds
 - [ ] PR reviewed
 
 ### DEV → PROD
+
 - [ ] Integration tests pass on dev
 - [ ] Smoke test: login, create, list, delete
 - [ ] Database migration tested on dev
@@ -76,6 +78,7 @@ ssh prod "curl -s localhost:8081/actuator/health"
 ```
 
 ## Health Checks
+
 ```bash
 # Quick health
 curl -s https://panomete.com/api/v1/health | jq .status

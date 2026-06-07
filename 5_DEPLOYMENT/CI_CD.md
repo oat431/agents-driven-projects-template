@@ -221,6 +221,7 @@ Never store production secrets in repo-level variables. Use environment-specific
 ---
 
 ## Rules for AI Agents
+
 1. **Never commit secrets** to pipeline files. Use GitHub Secrets / Vault.
 2. **Pipeline code is production code.** Review it. Test it.
 3. **New service = new pipeline job.** Don't bloat the main pipeline.

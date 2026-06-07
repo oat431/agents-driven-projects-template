@@ -147,23 +147,27 @@ Full rollout
 ## Promotion Gates
 
 ### DEV → QA
+
 - [ ] All unit tests pass
 - [ ] Integration tests pass
 - [ ] No lint errors
 - [ ] PR reviewed + approved
 
 ### QA → UAT
+
 - [ ] Full regression suite green
 - [ ] Performance baselines met (no >20% degradation)
 - [ ] Security scan clean (no HIGH/CRITICAL)
 - [ ] QA sign-off
 
 ### UAT → STAGING
+
 - [ ] All UAT scenarios pass (UAT.md)
 - [ ] Product owner sign-off
 - [ ] CHANGELOG.md updated
 
 ### STAGING → PROD
+
 - [ ] Full regression green
 - [ ] Performance test green
 - [ ] Database migration tested (no locks, no data loss)

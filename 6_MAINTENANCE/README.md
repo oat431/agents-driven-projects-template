@@ -98,6 +98,7 @@ ALERT FIRES
 ## Example Prompts
 
 ### Daily Health Check
+
 ```
 "Check MONITORING.md dashboards. Report:
 - API: request rate, error rate, P95 latency (vs baseline)
@@ -109,6 +110,7 @@ Flag anything outside normal range."
 ```
 
 ### Incident Response
+
 ```
 "Alert: API error rate 12%. Follow RUNBOOK.md incident playbook.
 1. Triage: check dashboards, recent deploys, DB status
@@ -118,6 +120,7 @@ Flag anything outside normal range."
 ```
 
 ### Weekly Tech Debt
+
 ```
 "Review TASKS.md tech debt section. Propose 3 items for this sprint.
 Rank by: production risk, developer friction, effort.
@@ -127,6 +130,7 @@ For each: what's the fix, estimated time, risk of NOT doing it."
 ---
 
 ## Deliverables (Ongoing)
+
 - [ ] Daily health checks (automated or agent-driven)
 - [ ] Incidents documented with root cause + prevention
 - [ ] Tech debt reduced (tracked in TASKS.md)

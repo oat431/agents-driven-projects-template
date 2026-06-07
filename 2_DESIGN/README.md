@@ -71,6 +71,7 @@ The **API_CONTRACT.md** is the bridge. Backend owns implementation. Frontend own
 ## Workflow
 
 ### For Full-Stack Features (API + UI)
+
 1. Agent reads PRD.md
 2. Agent drafts ARCHITECTURE.md (system-level decisions)
 3. Agent drafts DESIGN_SPEC.md (backend: API, DB, security)
@@ -80,6 +81,7 @@ The **API_CONTRACT.md** is the bridge. Backend owns implementation. Frontend own
 7. You review all. Backend and frontend are now decoupled — can build in parallel.
 
 ### Example Prompt (Full-Stack)
+
 ```
 "Read PRD.md. Design the system:
 
@@ -96,6 +98,7 @@ Ask questions before drafting."
 ```
 
 ### For Backend-Only Feature
+
 ```
 "Read PRD.md. Design the backend:
 - DESIGN_SPEC.md with API contract, DB schema, security
@@ -103,6 +106,7 @@ Ask questions before drafting."
 ```
 
 ### For Frontend-Only (Backend Already Exists)
+
 ```
 "Read the existing API docs. Design the frontend:
 - UI_SPEC.md: design tokens matching existing brand
@@ -131,6 +135,7 @@ Store complex diagrams in `2_DESIGN/DIAGRAMS/` as `.mmd` files.
 ---
 
 ## Deliverables
+
 - [ ] ARCHITECTURE.md updated (cross-cutting decisions)
 - [ ] Backend: DESIGN_SPEC.md (or HLDD + LLDD for complex modules)
 - [ ] Frontend: UI_SPEC.md (brand tokens)

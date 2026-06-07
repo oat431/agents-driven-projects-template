@@ -1,11 +1,13 @@
 # AGENTS.md — project-fullstack (Monorepo: API + Web)
 
 ## Project
+
 - **Name:** fullstack-app
 - **Purpose:** E-commerce platform. Monorepo with shared types, API server, and admin dashboard.
 - **Repo:** github.com/panomete/fullstack-app
 
 ## Repo Structure
+
 ```
 fullstack-app/
 ├── packages/
@@ -25,6 +27,7 @@ fullstack-app/
 **Contract changes:** Read `docs/API_CONTRACT.md` — update BOTH sides.
 
 ## Stack
+
 | Package | Stack |
 |---------|-------|
 | `packages/shared` | TypeScript 5.x, Zod |
@@ -32,6 +35,7 @@ fullstack-app/
 | `packages/web` | Next.js 14, TypeScript, Tailwind, shadcn/ui |
 
 ## Commands
+
 ```bash
 # Everything (Docker Compose)
 docker compose up -d
@@ -51,7 +55,9 @@ cd packages/shared && pnpm build
 ```
 
 ## Key Rule: Shared Types
+
 `packages/shared/` is the source of truth for data shapes. Both API and Web consume from it. When changing a type:
+
 1. Update in `packages/shared/src/`
 2. Run `pnpm build` in shared
 3. Update API DTOs + Web components to match

@@ -14,9 +14,10 @@
 
 ---
 
-## <!-- Playwright Example (TypeScript) -->
+## Playwright Example (TypeScript)
 
 ### Setup
+
 ```typescript
 // tests/e2e/auth.setup.ts
 import { test as setup, expect } from '@playwright/test';
@@ -32,6 +33,7 @@ setup('authenticate', async ({ page }) => {
 ```
 
 ### Critical Flow: User Enables 2FA
+
 ```typescript
 // tests/e2e/2fa-setup.spec.ts
 import { test, expect } from '@playwright/test';
@@ -99,7 +101,7 @@ test.describe('Two-Factor Authentication Setup', () => {
 
 ---
 
-## <!-- Cypress Example (alternative) -->
+## Cypress Example (Alternative)
 
 ```typescript
 // cypress/e2e/checkout.cy.ts
@@ -145,6 +147,7 @@ describe('Checkout Flow', () => {
 - [ ] `data-test` attributes used (not CSS classes or text content)
 
 ## Rules for AI Agents
+
 1. **E2E test only critical paths.** Not "every button exists." That's unit test territory.
 2. **Use `data-test` attributes.** Never select by CSS class or XPath.
 3. **Test data must be deterministic.** Seed test DB. Don't rely on dev data.
