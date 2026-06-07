@@ -15,12 +15,14 @@
 
 ## State Machines
 
-### Order States 
+### Order States
+
 ```
 PENDING → CONFIRMED → SHIPPED → DELIVERED
     ↓         ↓
 CANCELLED   REFUNDED
 ```
+
 - **PENDING:** Payment not yet confirmed.
 - **CONFIRMED:** Paid, awaiting fulfillment.
 - **SHIPPED:** Handed to carrier. Tracking number exists.
@@ -29,6 +31,7 @@ CANCELLED   REFUNDED
 - **REFUNDED:** After CONFIRMED. Money returned.
 
 ### User States
+
 ```
 INACTIVE → ACTIVE → SUSPENDED
                 ↓
@@ -36,6 +39,7 @@ INACTIVE → ACTIVE → SUSPENDED
 ```
 
 ## Abbreviations (Internal)
+
 | Abbrev | Meaning |
 |--------|---------|
 | <!-- SKU --> | Stock Keeping Unit — unique product variant identifier |
@@ -44,6 +48,7 @@ INACTIVE → ACTIVE → SUSPENDED
 | <!-- TTL --> | Time To Live — used for cache expiry and token expiry |
 
 ## Departments / Teams
+
 | Team | Owns | Slack Channel |
 |------|------|---------------|
 | <!-- Platform --> | API, auth, infrastructure | `#team-platform` |
@@ -51,9 +56,10 @@ INACTIVE → ACTIVE → SUSPENDED
 | <!-- Core Product --> | User-facing features | `#team-product` |
 
 ## External Services (Vendor Names)
+
 | Service | Purpose | Docs |
 |---------|---------|------|
-| Stripe | Payment processing | https://docs.stripe.com |
-| SendGrid | Transactional email | https://docs.sendgrid.com |
-| Auth0 | SSO for enterprise customers | https://auth0.com/docs |
-| Cloudflare | DNS, CDN, WAF | https://developers.cloudflare.com |
+| Stripe | Payment processing | <https://docs.stripe.com> |
+| SendGrid | Transactional email | <https://docs.sendgrid.com> |
+| Auth0 | SSO for enterprise customers | <https://auth0.com/docs> |
+| Cloudflare | DNS, CDN, WAF | <https://developers.cloudflare.com> |

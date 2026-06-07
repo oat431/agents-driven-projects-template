@@ -27,6 +27,7 @@ Ask me clarifying questions before finalizing."
 ```
 
 ## Deliverables
+
 - [ ] Problem statement clear and data-backed
 - [ ] User stories written (As a X, I want Y, so that Z)
 - [ ] Success metrics defined (measurable, not vague)

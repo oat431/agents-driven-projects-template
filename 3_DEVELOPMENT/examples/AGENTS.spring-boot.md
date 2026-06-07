@@ -3,11 +3,13 @@
 <!-- Real example. Spring Boot 3.3 + PostgreSQL + Docker. -->
 
 ## Project
+
 - **Name:** auth-service
 - **Purpose:** Central authentication & authorization for the microservice mesh. Handles login, JWT issuance, token refresh, 2FA, and role-based access control.
 - **Repo:** github.com/panomete/auth-service
 
 ## Stack
+
 - **Language:** Java 21
 - **Framework:** Spring Boot 3.3 + Spring Security 6
 - **Database:** PostgreSQL 16 (auth_db)
@@ -16,6 +18,7 @@
 - **Container:** Docker Compose (dev), Kubernetes (prod)
 
 ## Project Map
+
 ```
 src/main/java/com/panomete/auth/
 ├── AuthApplication.java           — Entrypoint
@@ -43,6 +46,7 @@ src/test/java/                     — Mirror of main structure
 ```
 
 ## Commands
+
 ```bash
 # Build
 ./mvnw clean package -DskipTests
@@ -70,6 +74,7 @@ docker compose up -d
 ```
 
 ## Conventions
+
 - Java 21. Use **records** for all DTOs. No Lombok.
 - Controllers return `ResponseEntity<ApiResponse<T>>`. Never return raw entities.
 - Service methods throw custom exceptions (`AuthException`, `NotFoundException`). Never return null.
@@ -82,6 +87,7 @@ docker compose up -d
 - Commit messages: `type(scope): description` (conventional commits).
 
 ## Security Rules (MUST FOLLOW)
+
 - Passwords hashed with bcrypt (strength=12). Never SHA, never MD5.
 - JWT signed with RS256 (asymmetric). Public key exposed at `/.well-known/jwks.json`.
 - Access token: 15 min. Refresh token: 24h, httpOnly cookie.
@@ -92,6 +98,7 @@ docker compose up -d
 - All endpoints authenticated unless in `SecurityConfig.PUBLIC_URLS`.
 
 ## Constraints
+
 - Do NOT modify `application-prod.yml`.
 - Do NOT edit existing Flyway migrations — create new ones.
 - API responses must remain backward-compatible within a major version.
@@ -99,12 +106,14 @@ docker compose up -d
 - Token signing keys: never committed to repo. Injected via env.
 
 ## External Dependencies
+
 - **Redis** — `localhost:6379` (dev), `redis.auth:6379` (prod)
 - **PostgreSQL** — `localhost:5432/auth_db` (dev)
 - **user-service** — `localhost:8082` (internal REST, for profile data)
 - **notification-service** — RabbitMQ, for sending 2FA setup emails
 
 ## Useful Context
+
 - This is part of a Spring Cloud microservice mesh (Eureka, Gateway, Config Server).
 - Service discovery via Eureka (`spring.cloud.discovery`).
 - Health check: `GET /actuator/health`.

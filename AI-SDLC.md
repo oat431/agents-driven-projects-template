@@ -338,6 +338,7 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 **Goal:** Keep it running. Fix bugs. Improve. The cycle never really ends.
 
 ### Context Files
+
 | File | Purpose |
 |------|---------|
 | **RUNBOOK.md** | Ops commands, incident response |
@@ -346,6 +347,7 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 | TASKS.md | Active bugs, tech debt, backlog |
 
 ### Workflow
+
 ```
 ┌─────────────────────────────────────────┐
 │  DAILY                                   │
@@ -374,12 +376,15 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 ```
 
 ### Example Prompt (Daily Check)
+>
 > "Check MONITORING.md dashboards. Report anomalies. Check error logs for new patterns. Report 2FA adoption rate. Flag any alerts."
 
 ### Example Prompt (Incident)
+>
 > "PagerDuty: API error rate 12%. Follow RUNBOOK.md incident playbook. Triage. Propose mitigation. Do not execute without approval."
 
 ### Deliverables (Ongoing)
+
 - [ ] Daily health check (automated)
 - [ ] Incidents documented (in `docs/incidents/`)
 - [ ] Tech debt reduced (tracked in `TASKS.md`)
@@ -413,12 +418,14 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 ## The Rules
 
 ### For You (Human)
+
 1. **Start with PRD.md.** Always. Code without a PRD is just vibes.
 2. **Review everything.** The agent is fast. You're the safety net.
 3. **Keep files updated.** Stale context is worse than no context.
 4. **One feature per PRD.** Don't cram unrelated things into one doc.
 
 ### For The Agent
+
 1. **Read context before writing code.** Never guess.
 2. **Ask when unclear.** "I don't know" beats a confident wrong answer.
 3. **Follow conventions exactly.** No personal style preferences.
@@ -430,11 +437,13 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 ## Project Checklist (Copy & Track)
 
 ### Bootstrap
+
 - [ ] `AGENTS.md` — stack, commands, conventions
 - [ ] `CONVENTIONS.md` — code style, naming, git
 - [ ] `.gitignore` — appropriate for stack
 
 ### Feature Work (Per Feature)
+
 - [ ] `PRD.md` — what & why
 - [ ] `DESIGN_SPEC.md` — how (for non-trivial features)
 - [ ] Implementation — per AGENTS.md + CONVENTIONS.md
@@ -443,6 +452,7 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 - [ ] PR review → merge
 
 ### Production Readiness
+
 - [ ] `DEPLOYMENT.md` — environments & CI/CD
 - [ ] `SECURITY.md` — auth rules & constraints
 - [ ] `MONITORING.md` — dashboards & alerts

@@ -4,6 +4,7 @@
   Agents in maintenance mode use this to detect and diagnose issues.
 
 ## Observability Stack
+
 - **Metrics:** Prometheus + Grafana / Datadog / New Relic
 - **Logs:** Loki + Grafana / CloudWatch / ELK / Datadog
 - **Traces:** Tempo + Grafana / Jaeger / Datadog APM
@@ -65,6 +66,7 @@ pg_stat_database_blks_hit / (pg_stat_database_blks_hit + pg_stat_database_blks_r
 ## Dashboards (Grafana Reference)
 
 ### Dashboard: API Overview
+
 ```
 Row 1: Request Rate | Error Rate | P95 Latency
 Row 2: Top 5 Endpoints by Latency | Top 5 Endpoints by Errors
@@ -73,6 +75,7 @@ Row 4: Active Connections | Thread Pool Utilization
 ```
 
 ### Dashboard: Database Health
+
 ```
 Row 1: Connections Used | Cache Hit Ratio | Dead Tuples
 Row 2: Queries/sec | Avg Query Time | Slow Queries
@@ -83,6 +86,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 ## Log Conventions
 
 ### Log Levels
+
 | Level | When |
 |-------|------|
 | ERROR | Something broke. Needs attention. |
@@ -91,6 +95,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 | DEBUG | Detailed tracing for debugging. Off in production. |
 
 ### Structured Logging Format
+
 ```json
 {
   "timestamp": "2026-06-07T20:42:00Z",
@@ -108,6 +113,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 ```
 
 ### Log Queries (Loki / CloudWatch / ELK)
+
 ```logql
 # Recent errors
 {service="api-server"} |= "ERROR" | json | line_format "{{.message}}"
@@ -125,6 +131,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 ## Health Check Detail
 
 ### Endpoint: GET /actuator/health
+
 ```json
 {
   "status": "UP",
@@ -137,6 +144,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 ```
 
 ### What "DOWN" Looks Like
+
 ```json
 {
   "status": "DOWN",
@@ -147,6 +155,7 @@ Row 4: Table Sizes (Top 10) | Index Usage
 ```
 
 ## Synthetic Checks (External Monitoring)
+
 ```bash
 # Health check
 curl -s -o /dev/null -w "%{http_code}" https://api.example.com/actuator/health

@@ -6,6 +6,7 @@
 ## Authentication Flow
 
 ### JWT (Current)
+
 ```
 1. POST /api/v1/auth/login  → returns accessToken + refreshToken
 2. Access token: 15min expiry, sent as Bearer header
@@ -14,6 +15,7 @@
 ```
 
 ### Token Structure
+
 ```json
 {
   "sub": "user-uuid",
@@ -27,11 +29,13 @@
 ## Authorization Rules
 
 ### Role Hierarchy
+
 ```
 ADMIN > MANAGER > USER
 ```
 
 ### Endpoint Protection
+
 ```java
 // Public
 @PermitAll
@@ -52,6 +56,7 @@ if (!order.getUserId().equals(currentUserId)) throw new ForbiddenException();
 ## Hard Security Rules (Agent Must Follow)
 
 ### Never
+
 - ❌ Log credentials, tokens, or PII
 - ❌ Return stack traces to clients (return generic error + log internally)
 - ❌ Hardcode secrets in any file that touches version control
@@ -60,6 +65,7 @@ if (!order.getUserId().equals(currentUserId)) throw new ForbiddenException();
 - ❌ Generate tokens with predictable seeds or weak randomness
 
 ### Always
+
 - ✅ Use `java.security.SecureRandom` (Java) / `crypto.randomBytes()` (Node) for tokens
 - ✅ Hash passwords with bcrypt/argon2 — never SHA, never MD5
 - ✅ Set `HttpOnly; Secure; SameSite=Strict` on cookies
@@ -70,6 +76,7 @@ if (!order.getUserId().equals(currentUserId)) throw new ForbiddenException();
 ## Sensitive Data Handling
 
 ### What Must Be Protected
+
 | Data | Storage | Transit | Logging |
 |------|---------|---------|---------|
 | Passwords | bcrypt hash | HTTPS only | NEVER |
@@ -79,6 +86,7 @@ if (!order.getUserId().equals(currentUserId)) throw new ForbiddenException();
 | Session tokens | Redis (TTL=15min) | HTTPS + httpOnly cookie | NEVER |
 
 ### Data Redaction Examples
+
 ```java
 // Before logging
 log.info("User login: {}", email.replaceAll("(?<=.{2}).(?=.*@)", "*"));
@@ -101,6 +109,7 @@ log.info("Token: {}", accessToken); // ❌ VIOLATION
 | Path Traversal | Resolve + verify path is within allowed directory. No `../` escaping. |
 
 ## Dependency Security
+
 ```bash
 # Check for known vulnerabilities (run in CI)
 ./mvnw dependency-check:check       # OWASP Dependency-Check (Java)

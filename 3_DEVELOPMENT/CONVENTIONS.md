@@ -6,6 +6,7 @@
 ## Language-Specific Conventions
 
 ### Java
+
 - Java 21. Use records for DTOs, sealed classes for domain types.
 - No Lombok. Write constructors/getters or use records.
 - Services are `@Service` + interface (for testability).
@@ -13,6 +14,7 @@
 - Configuration: `application.yml` (not `.properties`).
 
 ### TypeScript / Node.js
+
 - TypeScript 5.x, strict mode.
 - Prefer `type` over `interface` for data shapes.
 - Async/await — never raw promises or callbacks.
@@ -20,6 +22,7 @@
 - Database: Prisma with explicit `select` (never `select: { _all: true }`).
 
 ### Python
+
 - Python 3.12+. Type hints on all function signatures.
 - Pydantic v2 for data validation/serialization.
 - `async def` + `await` for I/O-bound code.
@@ -28,11 +31,13 @@
 ## Naming Conventions
 
 ### General
+
 - **Clarity over brevity.** `calculateOrderTotalWithTax` beats `calcTot`.
 - **No abbreviations** unless universally understood (`id`, `url`, `api`, `db`).
 - **Consistent vocabulary.** Don't mix `get`/`fetch`/`retrieve` — pick one.
 
 ### By Type
+
 | Thing | Convention | Example |
 |-------|-----------|---------|
 | Class/Model | PascalCase | `OrderService`, `UserProfile` |
@@ -48,6 +53,7 @@
 ## Git Conventions
 
 ### Branch Naming
+
 ```
 feature/JIRA-123-add-payment   — New feature
 bugfix/JIRA-456-fix-timeout     — Bug fix
@@ -57,6 +63,7 @@ refactor/extract-auth-module   — No behavior change
 ```
 
 ### Commit Messages
+
 ```
 type(scope): imperative description
 
@@ -71,6 +78,7 @@ Why this change. What it fixes. Migration notes if needed.
 ```
 
 ### PR Guidelines
+
 - **Title:** Same format as commits.
 - **Description:** What + why + how to test.
 - **Size:** Under 400 lines. If bigger, break into stacked PRs.
@@ -78,6 +86,7 @@ Why this change. What it fixes. Migration notes if needed.
 - **Squash merge** to main — keep history clean.
 
 ## Code Review Checklist (For PR Review Agent)
+
 - [ ] Tests pass + new tests for new behavior
 - [ ] No hardcoded values that should be config
 - [ ] Error handling covers all branches
@@ -87,6 +96,7 @@ Why this change. What it fixes. Migration notes if needed.
 - [ ] No secrets, debug code, or commented-out blocks
 
 ## Import/Dependency Order (Java Example)
+
 ```java
 // 1. JDK
 import java.time.Instant;

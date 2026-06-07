@@ -35,6 +35,7 @@
 ```
 
 ## Deliverables
+
 - [ ] Staging deploy + smoke test passed
 - [ ] Production deploy performed (canary or rolling)
 - [ ] Post-deploy monitoring (15 min window)

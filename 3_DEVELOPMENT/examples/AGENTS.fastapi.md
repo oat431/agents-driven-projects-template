@@ -3,12 +3,14 @@
 <!-- Real example. Python 3.12 + FastAPI + SQLAlchemy + Redis. -->
 
 ## Project
+
 - **Name:** short-link
 - **Purpose:** URL shortener with click analytics. REST API only — no frontend.
 - **Repo:** github.com/panomete/short-link
-- **URL:** https://s.panomete.com
+- **URL:** <https://s.panomete.com>
 
 ## Stack
+
 - **Language:** Python 3.12
 - **Framework:** FastAPI 0.110
 - **Database:** PostgreSQL 16 (db_short_link)
@@ -20,6 +22,7 @@
 - **Container:** Docker Compose
 
 ## Project Map
+
 ```
 app/
 ├── main.py                       — FastAPI app, lifespan, CORS
@@ -53,6 +56,7 @@ tests/
 ```
 
 ## Commands
+
 ```bash
 # Setup
 python -m venv .venv && source .venv/bin/activate
@@ -83,6 +87,7 @@ mypy app/
 ```
 
 ## Conventions
+
 - Python 3.12+. Type hints on EVERY function signature (strict mode).
 - Async everywhere: `async def` + `AsyncSession` + `httpx.AsyncClient`.
 - Pydantic v2 for all request/response schemas. `model_validate()` not `parse_obj()`.
@@ -94,6 +99,7 @@ mypy app/
 - Redis keys: `redirect:{slug}` (URL cache), `rate:{ip}` (rate limit).
 
 ## Security Rules
+
 - API key in `Authorization: Bearer <key>` header. Validated via dependency.
 - Rate limit: 30 POST /shorten per minute per IP (Redis).
 - No dangerous redirects: validate target URL doesn't redirect to itself.
@@ -101,12 +107,14 @@ mypy app/
 - `.env` gitignored. `SECRET_KEY` for API key hashing.
 
 ## Constraints
+
 - Do NOT change slug generation algorithm (affects existing links).
 - Shortened URLs: never delete — soft-deactivate only (`is_active = false`).
 - Click tracking: async (fire-and-forget to not slow redirect).
 - API versioned at `/api/v1/`. Breaking changes → `/api/v2/`.
 
 ## Key Files
+
 - `app/config.py` — All settings. Read first.
 - `app/core/database.py` — DB session setup.
 - `app/models/link.py` — Central data model.

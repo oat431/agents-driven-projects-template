@@ -40,6 +40,7 @@ Flag any decisions where multiple approaches exist."
 ```
 
 ## Deliverables
+
 - [ ] Component architecture defined
 - [ ] API contract specified (if applicable)
 - [ ] Database schema designed

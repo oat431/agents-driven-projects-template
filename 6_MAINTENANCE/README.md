@@ -35,6 +35,7 @@
 ## Example Prompts
 
 **Daily Check:**
+
 ```
 "Check MONITORING.md dashboards. Report anomalies.
 Scan error logs for new patterns. Report adoption metrics.
@@ -42,12 +43,14 @@ Flag any triggered alerts."
 ```
 
 **Incident Response:**
+
 ```
 "PagerDuty: API error rate 12%. Follow RUNBOOK.md incident playbook.
 Triage the issue. Propose mitigation. Do not execute without approval."
 ```
 
 **Tech Debt Review:**
+
 ```
 "Review TASKS.md tech debt section. Identify top 3 items by:
 - Production risk
@@ -57,6 +60,7 @@ Propose which to tackle this sprint."
 ```
 
 ## Deliverables
+
 - [ ] Daily health checks automated
 - [ ] Incidents documented with root cause + prevention
 - [ ] Tech debt reduced (tracked in TASKS.md)

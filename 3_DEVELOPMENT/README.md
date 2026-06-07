@@ -38,6 +38,7 @@ Open a PR with summary of changes and testing instructions."
 ```
 
 ## Deliverables
+
 - [ ] Feature implemented per design
 - [ ] Tests pass (unit + integration)
 - [ ] Lint/checkstyle clean

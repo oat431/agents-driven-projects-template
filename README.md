@@ -43,10 +43,12 @@ templates/
 ## Per-Phase READMEs
 
 Each phase folder contains a README.md with:
+
 - What this phase covers
 - When to use each template
 - Example prompts for AI agents
 - Deliverables checklist
+
 ---
 
 ## How Agents Use These
@@ -56,6 +58,7 @@ The pattern is:
 1. **AGENTS.md** loads every session — keep it tight (~1-2 KB)
 2. **AGENTS.md links to others** — agent loads them on-demand when relevant
 3. **Example** from AGENTS.md:
+
    ```markdown
    ## Further Context
    - Database patterns: [DATABASE.md](./DATABASE.md)

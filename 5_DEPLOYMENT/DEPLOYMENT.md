@@ -15,6 +15,7 @@
 ## Infrastructure
 
 ### Stack
+
 - **Compute:** AWS ECS Fargate / Kubernetes / VPS (Hetzner)
 - **Database:** RDS PostgreSQL / Cloud SQL / self-managed
 - **Cache:** ElastiCache Redis / Memorystore / local
@@ -23,6 +24,7 @@
 - **DNS:** Route53 / Cloudflare
 
 ### Resource Sizing
+
 | Service | CPU | Memory | Instances |
 |---------|-----|--------|-----------|
 | api-server | 2 vCPU | 4 GB | 3 min |
@@ -32,11 +34,13 @@
 ## CI/CD Pipeline
 
 ### Pipeline Flow
+
 ```
 Push → Build → Test → Lint → (PR) → Review → Merge → Deploy Staging → Smoke Test → Deploy Prod
 ```
 
 ### Build Steps
+
 ```bash
 # 1. Build
 ./mvnw clean package -DskipTests
@@ -59,6 +63,7 @@ docker push registry.example.com/myapp:${VERSION}
 ```
 
 ### Deployment Command
+
 ```bash
 # Kubernetes
 kubectl set image deployment/api-server api-server=myapp:${VERSION}
@@ -69,11 +74,13 @@ docker compose -f docker-compose.prod.yml up -d
 ```
 
 ## Health Checks
+
 - **Liveness:** `GET /actuator/health/liveness` (is the process alive?)
 - **Readiness:** `GET /actuator/health/readiness` (can it serve traffic?)
 - **Custom:** DB connectivity, Redis ping, disk space check
 
 ## Rollback Procedure
+
 ```bash
 # 1. Identify last good version
 kubectl rollout history deployment/api-server
@@ -86,12 +93,14 @@ curl -s https://api.example.com/actuator/health | jq .status
 ```
 
 ## Secrets Management
+
 - **Dev:** `.env` file (gitignored, never committed)
 - **Prod:** AWS Secrets Manager / HashiCorp Vault / GitHub Secrets
 - **Rotation:** DB passwords rotated quarterly
 - **Never:** Hardcoded keys, config files with secrets in repo
 
 ## Backup & Restore
+
 ```bash
 # Backup (daily cron, 03:00 UTC)
 pg_dump -Fc myapp_prod > backups/myapp_$(date +%Y%m%d).dump

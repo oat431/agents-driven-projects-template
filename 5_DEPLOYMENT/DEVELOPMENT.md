@@ -3,6 +3,7 @@
   How to get this project running from zero. Replace all after - with real values.
 
 ## Prerequisites
+
 - Java 21 (brew install openjdk@21)
 - Node.js 22 (nvm use 22)
 - Docker Desktop 4.x
@@ -35,6 +36,7 @@ docker compose up -d             # DB, Redis, etc.
 ```
 
 ## Environment Variables
+
 ```bash
 # Copy and fill in
 cp .env.example .env
@@ -65,6 +67,7 @@ LOG_LEVEL=DEBUG
 ```
 
 ## Useful Scripts
+
 ```bash
 # Reset dev database
 ./scripts/reset-db.sh

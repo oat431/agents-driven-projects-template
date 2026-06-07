@@ -39,6 +39,7 @@ npm test -- --watch
 ```
 
 ## Coverage Targets
+
 - Overall: 80% line coverage
 - Service layer: 90%+ (business logic)
 - Controllers: 70% (thin, tested via integration)
@@ -47,12 +48,14 @@ npm test -- --watch
 ## Unit Test Patterns
 
 ### Naming Convention
+
 ```
 {ClassName}Test.java
 MethodName_StateUnderTest_ExpectedBehavior
 ```
 
 ### Structure (AAA Pattern)
+
 ```java
 @Test
 void findById_WhenUserExists_ReturnsUser() {
@@ -70,11 +73,13 @@ void findById_WhenUserExists_ReturnsUser() {
 ```
 
 ### What to Test
+
 ✅ Business logic, edge cases, error paths, validation
 ✅ One behavior per test — not "test everything"
 ❌ Framework code, getters/setters, trivial delegation
 
 ### What to Mock
+
 ✅ External services (APIs, message queues, file system)
 ✅ Repositories (in unit tests)
 ❌ The class under test
@@ -101,6 +106,7 @@ class UserControllerIT {
 ```
 
 ### Integration Test Rules
+
 - Real database (test container or dedicated test DB)
 - Clean up after each test (`@Transactional` rollback or `@AfterEach` delete)
 - Test the full slice: controller → service → repository → database
@@ -109,11 +115,13 @@ class UserControllerIT {
 ## Test Data
 
 ### Fixtures
+
 - **Location:** `src/test/resources/db/testdata/`
 - **Format:** SQL insert scripts, JSON fixtures, or builder methods
 - **Rule:** Each test sets up its own data. No shared mutable state.
 
 ### Factory Helpers
+
 ```java
 // Test data builders make tests readable
 var user = TestDataFactory.aUser()
@@ -123,6 +131,7 @@ var user = TestDataFactory.aUser()
 ```
 
 ## Smoke Tests (Post-Deploy)
+
 ```bash
 # Run against deployed environment
 curl -s https://api.example.com/actuator/health | jq .status

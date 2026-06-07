@@ -34,6 +34,7 @@ Run full test suite. Report coverage vs targets in TESTING.md."
 ```
 
 ## Deliverables
+
 - [ ] Unit tests cover business logic
 - [ ] Integration tests cover API contracts
 - [ ] Edge cases from PRD.md tested

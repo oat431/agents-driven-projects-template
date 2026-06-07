@@ -3,6 +3,7 @@
 <!-- Real example. Multi-service Docker Compose for self-hosted homelab. -->
 
 ## Project
+
 - **Name:** homelab
 - **Purpose:** Self-hosted infrastructure on panomete.com. API gateway, auth, databases, monitoring.
 - **Host:** Hetzner VPS (4 vCPU, 8 GB RAM, 80 GB SSD)
@@ -10,6 +11,7 @@
 - **Config Location:** `/opt/homelab/`
 
 ## Stack
+
 - **Orchestration:** Docker Compose v2
 - **Reverse Proxy:** nginx (custom image, Let's Encrypt via certbot)
 - **Services:** Spring Boot 3.3 (Java 21), FastAPI (Python 3.12)
@@ -18,6 +20,7 @@
 - **CI/CD:** GitHub Actions → self-hosted runner
 
 ## Service Map
+
 ```
 panomete.com
 ├── nginx                         — Reverse proxy, SSL termination (:80, :443)
@@ -35,6 +38,7 @@ panomete.com
 ```
 
 ## Commands
+
 ```bash
 # All commands run from /opt/homelab/
 
@@ -68,6 +72,7 @@ docker exec -i postgres psql -U postgres < backups/20260607.sql
 ```
 
 ## File Map
+
 ```
 /opt/homelab/
 ├── docker-compose.yml            — Main compose file (all services)
@@ -88,6 +93,7 @@ docker exec -i postgres psql -U postgres < backups/20260607.sql
 ```
 
 ## Conventions
+
 - One service per directory. Config + Dockerfile + README in each.
 - Environment variables: never hardcode in `docker-compose.yml`. Use `.env`.
 - Container names: kebab-case, match directory (`auth-service`, `short-link`).
@@ -98,6 +104,7 @@ docker exec -i postgres psql -U postgres < backups/20260607.sql
 - Restart policy: `unless-stopped` for all services.
 
 ## Security Rules
+
 - nginx: ONLY ports 80 and 443 exposed. Everything else on internal network.
 - All HTTP → HTTPS redirect. HSTS enabled.
 - PostgreSQL: no port exposed to host. Access via internal network only.
@@ -108,12 +115,14 @@ docker exec -i postgres psql -U postgres < backups/20260607.sql
 - Automatic security updates: `unattended-upgrades` enabled.
 
 ## Constraints
+
 - Do NOT expose database ports to host unless debugging (and close immediately after).
 - Do NOT modify `nginx.conf` without testing `nginx -t` first.
 - Do NOT delete named volumes without confirmed backup.
 - Docker images: use specific tags (`auth-service:v2.4.0`), never `:latest` in prod.
 
 ## Cron Jobs (on host)
+
 ```bash
 # Nightly backup (3:00 AM)
 0 3 * * * /opt/homelab/scripts/backup-db.sh
@@ -126,6 +135,7 @@ docker exec -i postgres psql -U postgres < backups/20260607.sql
 ```
 
 ## Troubleshooting
+
 | Symptom | Check |
 |---------|-------|
 | 502 Bad Gateway | `docker compose ps` — is backend running? Check ports. |
