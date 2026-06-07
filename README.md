@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 # AI-SDLC Templates
 
-Copy these into your project's `docs/` folder as needed. Start with the phase you're in — you don't need all of them on day one.
-
-## Quick Start
-
-```bash
-# In your project root:
-mkdir docs
-cp templates/3-development/AGENTS.md docs/
-cp templates/3-development/CONVENTIONS.md docs/
-# Fill them in ↓
-```
+Copy these into your project's that agents will read for context. Each file is a template — fill in the relevant details for your project. The more complete, the better the agent can help.
 
 ## Template Index
 
@@ -53,13 +42,11 @@ templates/
 
 ## Per-Phase READMEs
 
-<<<<<<< HEAD
 Each phase folder contains a README.md with:
 - What this phase covers
 - When to use each template
 - Example prompts for AI agents
 - Deliverables checklist
-=======
 ---
 
 ## How Agents Use These
@@ -81,4 +68,3 @@ The agent reads AGENTS.md → sees you're working on payments → loads SECURITY
 ---
 
 When you're ready to spin up that personal project, tell me the directory and I'll read your stack and fill these out for real. 🔮
->>>>>>> 52fb6bc21c0edc3bc95df97a3137312e53741a07

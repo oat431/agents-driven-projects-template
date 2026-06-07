@@ -1,9 +1,7 @@
 # DATABASE.md — Schema, Queries & Data Patterns
 
-<!--
   Loaded when agent writes queries, migrations, or touches the data layer.
   Keep under ~3KB. Link from AGENTS.md.
--->
 
 ## Connection
 - **Engine:** PostgreSQL 16
@@ -67,7 +65,7 @@ CREATE INDEX idx_users_active ON users (email) WHERE deleted_at IS NULL;
 ```
 
 ## Key Tables
-<!-- Summarize major tables. Agent should understand the data model. -->
+Summarize major tables. Agent should understand the data model.
 
 | Table | Purpose | Size | Key Relations |
 |-------|---------|------|---------------|

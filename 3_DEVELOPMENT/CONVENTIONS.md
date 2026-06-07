@@ -1,27 +1,25 @@
 # CONVENTIONS.md — Code Style, Naming & Git
 
-<!--
   How this project writes code. Agents use this for every line they generate.
   Be specific — vague conventions are ignored.
--->
 
 ## Language-Specific Conventions
 
-### <!-- Java -->
+### Java
 - Java 21. Use records for DTOs, sealed classes for domain types.
 - No Lombok. Write constructors/getters or use records.
 - Services are `@Service` + interface (for testability).
 - Repositories extend `JpaRepository<T, UUID>`.
 - Configuration: `application.yml` (not `.properties`).
 
-### <!-- TypeScript / Node.js -->
+### TypeScript / Node.js
 - TypeScript 5.x, strict mode.
 - Prefer `type` over `interface` for data shapes.
 - Async/await — never raw promises or callbacks.
 - Path aliases: `@/` maps to `src/`.
 - Database: Prisma with explicit `select` (never `select: { _all: true }`).
 
-### <!-- Python -->
+### Python
 - Python 3.12+. Type hints on all function signatures.
 - Pydantic v2 for data validation/serialization.
 - `async def` + `await` for I/O-bound code.

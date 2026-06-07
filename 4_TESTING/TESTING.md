@@ -1,9 +1,7 @@
 # TESTING.md — Strategy, Patterns & Coverage
 
-<!--
   How this project tests. Agents use this to write tests that match existing patterns,
   run the right commands, and hit coverage targets.
--->
 
 ## Test Pyramid
 

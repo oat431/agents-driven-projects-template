@@ -1,9 +1,7 @@
 # CHANGELOG.md — Release History & Breaking Changes
 
-<!--
   Human-readable release notes. Agents use this to understand version history,
   deprecation timelines, and migration paths. Keep entries dated.
--->
 
 ## Versioning
 - Format: `MAJOR.MINOR.PATCH` (Semantic Versioning)
@@ -15,16 +13,16 @@
 
 ## [Unreleased]
 ### Added
-- <!-- New features going into next release -->
+- New features going into next release
 
 ### Changed
-- <!-- Modifications to existing features -->
+- Modifications to existing features
 
 ### Deprecated
-- <!-- Features that will be removed in next major version -->
+- Features that will be removed in next major version
 
 ### Fixed
-- <!-- Bug fixes in progress -->
+- Bug fixes in progress
 
 ---
 

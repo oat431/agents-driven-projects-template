@@ -1,27 +1,25 @@
 # DESIGN_SPEC.md — Technical Design Document
 
-<!--
   The HOW. Engineering response to the PRD. Agents use this to understand
   the intended implementation before writing code. Bridge between PRD and AGENTS.md.
--->
 
 ## Overview
-- **Feature:** <!-- Link to PRD -->
+- **Feature:** [Link to PRD](#)
 - **Status:** Draft | Review | Approved | Implementing | Done
-- **Author:** <!-- @engineer -->
-- **Reviewers:** <!-- @tech-lead, @security -->
+- **Author:** @engineer
+- **Reviewers:** @tech-lead, @security
 
 ## Architecture Decision
 
 ### Approach Selected
-<!-- e.g., "TOTP-based 2FA using java-otp library + encrypted secret storage" -->
+e.g., "TOTP-based 2FA using java-otp library + encrypted secret storage"
 
 ### Alternatives Considered
 | Option | Pros | Cons | Verdict |
 |--------|------|------|---------|
-| <!-- TOTP --> | Industry standard, no vendor lock-in | User needs authenticator app | ✅ Selected |
-| <!-- SMS OTP --> | No app needed | $0.05/msg, SIM swap risk, slow delivery | ❌ Rejected |
-| <!-- Email OTP --> | Universal | Email account = single point of failure | ❌ Rejected as primary |
+| TOTP | Industry standard, no vendor lock-in | User needs authenticator app | ✅ Selected |
+| SMS OTP | No app needed | $0.05/msg, SIM swap risk, slow delivery | ❌ Rejected |
+| Email OTP | Universal | Email account = single point of failure | ❌ Rejected as primary |
 
 ## System Design
 

@@ -1,16 +1,14 @@
 # RUNBOOK.md — Operations & Incident Response
 
-<!--
   The operations manual. Agents use this in production contexts — monitoring,
   incident response, and maintenance tasks. Link from AGENTS.md for ops-heavy projects.
--->
 
 ## Service Overview
-- **Service:** <!-- e.g., api-server -->
-- **Port:** <!-- 8080 -->
+- **Service:** e.g., api-server
+- **Port:** 8080
 - **Health:** `GET /actuator/health`
 - **Metrics:** `GET /actuator/prometheus`
-- **Logs:** <!-- CloudWatch / Loki / ELK / journalctl -->
+- **Logs:** CloudWatch / Loki / ELK / journalctl
 
 ## Common Operations
 

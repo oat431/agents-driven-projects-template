@@ -1,9 +1,7 @@
 # API_PATTERNS.md — Endpoint Conventions & Patterns
 
-<!--
   How this project writes APIs. Agents use this to generate consistent endpoints.
   Covers REST, GraphQL, gRPC — whatever you use. Include only what applies.
--->
 
 ## REST Conventions
 

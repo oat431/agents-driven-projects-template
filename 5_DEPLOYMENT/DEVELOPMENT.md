@@ -1,14 +1,12 @@
 # DEVELOPMENT.md — Local Setup & Workflow
 
-<!--
-  How to get this project running from zero. Replace all <!-- comments --> with real values.
--->
+  How to get this project running from zero. Replace all after - with real values.
 
 ## Prerequisites
-- <!-- Java 21 (brew install openjdk@21) -->
-- <!-- Node.js 22 (nvm use 22) -->
-- <!-- Docker Desktop 4.x -->
-- <!-- PostgreSQL 16 -->
+- Java 21 (brew install openjdk@21)
+- Node.js 22 (nvm use 22)
+- Docker Desktop 4.x
+- PostgreSQL 16 (brew install postgresql@16)
 
 ## Quick Start
 

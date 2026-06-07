@@ -1,9 +1,7 @@
 # DEPLOYMENT.md — Environments, CI/CD & Infrastructure
 
-<!--
   How this project gets to production. Agents use this to understand deployment
   constraints, environment differences, and infrastructure requirements.
--->
 
 ## Environments
 

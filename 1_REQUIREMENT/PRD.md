@@ -1,25 +1,23 @@
 # PRD.md — Product Requirements Document
 
-<!--
   The WHAT and WHY. Before any code exists. Agents use this to validate
   that implementation matches intent. Link from AGENTS.md with top priority.
--->
 
-## Overview
-- **Feature:** <!-- e.g., Two-Factor Authentication -->
+## Overview (Example change to your project)
+- **Feature:** Two-Factor Authentication
 - **Status:** Draft | Review | Approved | In Development | Shipped
-- **Stakeholders:** <!-- e.g., @pm-lead, @tech-lead, @design-lead -->
-- **Target Release:** <!-- e.g., Q3 2026 / v2.4.0 -->
+- **Stakeholders:** @pm-lead, @tech-lead, @design-lead
+- **Target Release:** Q3 2026 / v2.4.0
 
 ## Problem Statement
-<!-- What user pain are we solving? Be specific with data if possible. -->
-<!-- e.g., "23% of support tickets are password resets. Current reset flow takes 4 emails." -->
+What user pain are we solving? Be specific with data if possible.
+e.g., "23% of support tickets are password resets. Current reset flow takes 4 emails."
 
 ## Success Metrics
-<!-- How we know this worked. Must be measurable. -->
-- [ ] <!-- e.g., Password reset support tickets drop by 50% within 30 days -->
-- [ ] <!-- e.g., 2FA adoption rate > 60% within 90 days -->
-- [ ] <!-- e.g., Account takeover incidents drop to near-zero -->
+How we know this worked. Must be measurable.
+- [ ] Password reset support tickets drop by 50% within 30 days
+- [ ] 2FA adoption rate > 60% within 90 days
+- [ ] Account takeover incidents drop to near-zero
 
 ## User Stories
 
@@ -66,9 +64,9 @@ So that <value>
 - **Compliance:** SOC 2 requirement — all admin accounts must have 2FA
 
 ## Dependencies
-- <!-- e.g., Need design team for 2FA setup UI (by June 15) -->
-- <!-- e.g., Need security team review of TOTP implementation (by June 20) -->
-- <!-- e.g., Depends on auth-service refactor (PR #342) -->
+- Need design team for 2FA setup UI (by June 15) -->
+- Need security team review of TOTP implementation (by June 20) -->
+- Depends on auth-service refactor (PR #342) -->
 
 ## Open Questions
 - [ ] Should we force 2FA on next login or give a grace period?
@@ -78,5 +76,5 @@ So that <value>
 ## Decisions Log
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| <!-- 2026-06-01 --> | TOTP over SMS as primary | Lower cost, no phone dependency, better security |
-| <!-- 2026-06-03 --> | 10 recovery codes, single-use | Industry standard. Regenerating resets all. |
+| 2026-06-01 | TOTP over SMS as primary | Lower cost, no phone dependency, better security |
+| 2026-06-03 | 10 recovery codes, single-use | Industry standard. Regenerating resets all. |

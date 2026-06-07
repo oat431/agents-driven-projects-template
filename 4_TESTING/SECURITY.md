@@ -1,9 +1,7 @@
 # SECURITY.md — Auth, Threats & Safe Patterns
 
-<!--
   Security rules the agent MUST follow. These are non-negotiable.
   Link from AGENTS.md with high priority.
--->
 
 ## Authentication Flow
 

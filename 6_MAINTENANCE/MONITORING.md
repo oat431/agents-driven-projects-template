@@ -1,16 +1,14 @@
 # MONITORING.md — Observability & Alerting
 
-<!--
   What to watch, where to watch it, and what to do when it screams.
   Agents in maintenance mode use this to detect and diagnose issues.
--->
 
 ## Observability Stack
-- **Metrics:** <!-- Prometheus + Grafana / Datadog / New Relic -->
-- **Logs:** <!-- Loki + Grafana / CloudWatch / ELK / Datadog -->
-- **Traces:** <!-- Tempo + Grafana / Jaeger / Datadog APM -->
-- **Alerts:** <!-- AlertManager / PagerDuty / Opsgenie -->
-- **Status Page:** <!-- status.example.com (powered by Atlassian Statuspage) -->
+- **Metrics:** Prometheus + Grafana / Datadog / New Relic
+- **Logs:** Loki + Grafana / CloudWatch / ELK / Datadog
+- **Traces:** Tempo + Grafana / Jaeger / Datadog APM
+- **Alerts:** AlertManager / PagerDuty / Opsgenie
+- **Status Page:** status.example.com (powered by Atlassian Statuspage)
 
 ## Key Metrics
 
