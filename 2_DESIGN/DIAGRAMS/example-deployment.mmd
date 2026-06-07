@@ -1,0 +1,45 @@
+graph TB
+    subgraph "Production"
+        LB[Load Balancer]
+        subgraph "K8s Cluster"
+            API1[api-server<br/>replica 1]
+            API2[api-server<br/>replica 2]
+            API3[api-server<br/>replica 3]
+            WKR1[worker<br/>replica 1]
+            WKR2[worker<br/>replica 2]
+        end
+        DB[(PostgreSQL<br/>Primary)]
+        DBRO[(PostgreSQL<br/>Read Replica)]
+        CACHE[(Redis<br/>Cache)]
+        MQ[[RabbitMQ]]
+        S3[Object Storage<br/>MinIO]
+    end
+
+    subgraph "Monitoring"
+        PROM[Prometheus]
+        GRAF[Grafana]
+        LOKI[Loki]
+        CAD[cAdvisor]
+    end
+
+    subgraph "External"
+        CDN[Cloudflare CDN]
+        EMAIL[SendGrid Email]
+    end
+
+    LB --> API1 & API2 & API3
+    API1 & API2 & API3 --> DB
+    API1 & API2 & API3 --> DBRO
+    API1 & API2 & API3 --> CACHE
+    API1 & API2 & API3 --> MQ
+    MQ --> WKR1 & WKR2
+    WKR1 & WKR2 --> DB
+    WKR1 & WKR2 --> S3
+    WKR1 & WKR2 --> EMAIL
+
+    PROM --> API1 & API2 & API3 & WKR1 & WKR2 & DB & CACHE
+    GRAF --> PROM
+    LOKI --> API1 & API2 & API3
+    CAD --> API1 & API2 & API3
+
+    CDN --> LB

@@ -1,0 +1,52 @@
+graph TB
+    subgraph "App Shell"
+        LAYOUT[AppLayout]
+        SIDEBAR[Sidebar]
+        HEADER[Header]
+    end
+
+    subgraph "Pages"
+        DASH[Dashboard Page]
+        USERS[Users Page]
+        PRODUCTS[Products Page]
+        ORDERS[Orders Page]
+    end
+
+    subgraph "Data Display"
+        DATATABLE[DataTable<br/>reusable]
+        STATCARD[StatCard<br/>reusable]
+        STATUSBADGE[StatusBadge<br/>reusable]
+    end
+
+    subgraph "Feature Components"
+        PRODUCTCARD[ProductCard]
+        PRODUCTGRID[ProductGrid]
+        ORDER_TIMELINE[OrderTimeline]
+        USER_AVATAR[UserAvatar]
+    end
+
+    subgraph "UI Primitives (shadcn/ui)"
+        BUTTON[Button]
+        CARD[Card]
+        DIALOG[Dialog]
+        INPUT[Input]
+        TABLE[Table]
+        TOAST[Toast]
+    end
+
+    LAYOUT --> SIDEBAR
+    LAYOUT --> HEADER
+    LAYOUT --> DASH & USERS & PRODUCTS & ORDERS
+
+    DASH --> STATCARD & DATATABLE
+    USERS --> DATATABLE & STATUSBADGE & USER_AVATAR
+    PRODUCTS --> PRODUCTGRID & DATATABLE
+    ORDERS --> DATATABLE & ORDER_TIMELINE & STATUSBADGE
+
+    PRODUCTGRID --> PRODUCTCARD
+    DATATABLE --> TABLE
+    STATCARD --> CARD
+    PRODUCTCARD --> CARD & BUTTON
+
+    SIDEBAR --> BUTTON
+    HEADER --> BUTTON & INPUT

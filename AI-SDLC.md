@@ -54,6 +54,7 @@ Nothing yet. This is setup.
 | File | Purpose | Level |
 |------|---------|-------|
 | **PRD.md** | Problem, user stories, success metrics, scope | Must |
+| SRS/SRS_TEMPLATE.md | Formal IEEE 830 spec (for compliance/multi-module) | Optional |
 | GLOSSARY.md | Domain terms if the domain is complex | Nice |
 
 ### Workflow
@@ -99,12 +100,27 @@ PRD.md is approved → move to Design
 
 ### Context Files
 
+**System (both sides):**
+| File | Purpose | Level |
+|------|---------|-------|
+| **ARCHITECTURE.md** | System-wide decisions, patterns, tech debt | Must |
+| ADR.md | Architecture Decision Records (why we chose X) | High |
+| DIAGRAMS/ | Mermaid ERD, sequence, deployment, component | High |
+
+**Backend:**
 | File | Purpose | Level |
 |------|---------|-------|
 | **DESIGN_SPEC.md** | Technical design, data flow, API contract | Must |
-| ARCHITECTURE.md | Design decisions, patterns | High |
-| DATABASE.md | Schema design, naming conventions | If DB exists |
-| API_PATTERNS.md | Endpoint conventions | If API exists |
+| HLDD/HLDD_TEMPLATE.md | High-Level Design: module decomposition | If multi-module |
+| LLDD/LLDD_TEMPLATE.md | Low-Level Design: class detail, algorithms | If complex module |
+
+**Frontend:**
+| File | Purpose | Level |
+|------|---------|-------|
+| UI_SPEC.md | Design tokens: colors, fonts, spacing, radius | If UI exists |
+| PAGE_SPEC.md | Routes + per-page: data, states, interactions | If UI exists |
+| COMPONENT_TREE.md | Component hierarchy: ui/ → layout/ → feature/ | If UI exists |
+| API_CONTRACT.md | Bridge: what frontend expects from backend | If UI + API |
 
 ### Workflow
 
@@ -231,8 +247,13 @@ YOU review → approve or request changes → AGENT updates → merge
 
 | File | Purpose |
 |------|---------|
-| **TESTING.md** | Test patterns, commands, coverage targets |
-| SECURITY.md | Security-specific test cases |
+| **TEST_STRATEGY.md** | Master plan: pyramid, coverage targets, quality gates |
+| UNIT_TEST.md | Backend (JUnit/pytest) + Frontend (Vitest) patterns |
+| INTEGRATION_TEST.md | API + DB slices with real database |
+| E2E_TEST.md | Playwright/Cypress user flow scenarios |
+| UAT.md | Traced to SRS/PRD user stories with sign-off |
+| PERFORMANCE_TEST.md | k6 load/stress/benchmarks + thresholds |
+| SECURITY.md | Security review checklist |
 | PRD.md | Verify user stories are satisfied |
 
 ### Workflow
@@ -283,8 +304,11 @@ AGENT adds fuzz tests → reports findings
 
 | File | Purpose |
 |------|---------|
-| **DEPLOYMENT.md** | Environments, CI/CD, health checks |
-| **SECURITY.md** | Secrets handling, production constraints |
+| **DEPLOYMENT_WORKFLOW.md** | Multi-env pipeline, promotion gates, rollback |
+| CI_CD.md | GitHub Actions / GitLab CI pipeline design |
+| DEPLOYMENT.md | Infrastructure + deployment commands |
+| DEVELOPMENT.md | Local setup + troubleshooting |
+| SECURITY.md | Secrets handling, production constraints |
 | CHANGELOG.md | Release notes |
 
 ### Workflow
@@ -396,21 +420,47 @@ AGENT reports: "Production deploy healthy. Rolling out feature flag 10% → 100%
 ## Quick Reference: Which File When?
 
 ```
+=== REQUIREMENTS ===
 "I have an idea"              → PRD.md
-"How should we build it?"     → DESIGN_SPEC.md
-"Why did we build it that way?" → ARCHITECTURE.md
+"Need formal traceability"    → SRS/SRS_TEMPLATE.md
+
+=== DESIGN ===
+"How should we build it?"     → DESIGN_SPEC.md (backend) + UI_SPEC.md (frontend)
+"Why did we choose X over Y?" → ADR.md
+"How do modules interact?"    → HLDD/HLDD_TEMPLATE.md
+"How does this component work?" → LLDD/LLDD_TEMPLATE.md
+"Show me the architecture"    → DIAGRAMS/ (*.mmd files)
+"What colors/fonts do we use?" → UI_SPEC.md
+"What routes exist?"          → PAGE_SPEC.md
+"What components exist?"      → COMPONENT_TREE.md
+"What does the API return?"   → API_CONTRACT.md
+
+=== DEVELOPMENT ===
 "Write the code"              → AGENTS.md + CONVENTIONS.md
 "Write a database query"      → DATABASE.md
 "Add an endpoint"             → API_PATTERNS.md
-"Write tests"                 → TESTING.md
+"What does 'SKU' mean here?"  → GLOSSARY.md
+
+=== TESTING ===
+"What's our test strategy?"   → TEST_STRATEGY.md
+"Write unit tests"            → UNIT_TEST.md
+"Test API + DB together"      → INTEGRATION_TEST.md
+"Test full user flow"         → E2E_TEST.md
+"Run UAT sign-off"            → UAT.md
+"Load test the API"           → PERFORMANCE_TEST.md
 "Handle auth / payments"      → SECURITY.md
-"How do I run this locally?"  → DEVELOPMENT.md
+
+=== DEPLOYMENT ===
+"How do environments work?"   → DEPLOYMENT_WORKFLOW.md
+"Set up CI/CD pipeline"       → CI_CD.md
 "Deploy to production"        → DEPLOYMENT.md
+"How do I run this locally?"  → DEVELOPMENT.md
+
+=== MAINTENANCE ===
 "Something is broken"         → RUNBOOK.md
 "Is the system healthy?"      → MONITORING.md
 "What changed in v2.4?"       → CHANGELOG.md
 "What are we working on?"     → TASKS.md
-"What does 'SKU' mean here?"  → GLOSSARY.md
 ```
 
 ---

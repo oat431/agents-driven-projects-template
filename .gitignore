@@ -1,0 +1,15 @@
+# Ignore generated files
+*.pdf
+*.html
+*.docx
+
+# Ignore node_modules from docs tooling
+node_modules/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Keep the templates themselves
+!*.md
+!*.mmd

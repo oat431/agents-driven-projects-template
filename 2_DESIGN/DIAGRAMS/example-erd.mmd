@@ -1,0 +1,62 @@
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS ||--|| USER_TOTP : has
+    USERS ||--o{ RECOVERY_CODES : has
+    USERS ||--o{ SESSIONS : creates
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    ORDER_ITEMS }o--|| PRODUCTS : references
+    PRODUCTS }o--o{ CATEGORIES : categorized
+
+    USERS {
+        uuid id PK
+        string email UK
+        string password_hash
+        string name
+        string role
+        boolean is_active
+        boolean two_factor_enabled
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+
+    USER_TOTP {
+        uuid id PK
+        uuid user_id FK
+        bytea encrypted_secret
+        string encryption_key_id
+        boolean is_active
+        timestamp verified_at
+    }
+
+    RECOVERY_CODES {
+        uuid id PK
+        uuid user_id FK
+        string code_hash
+        boolean is_used
+        timestamp used_at
+    }
+
+    ORDERS {
+        uuid id PK
+        uuid user_id FK
+        string status
+        decimal total
+        timestamp created_at
+    }
+
+    ORDER_ITEMS {
+        uuid id PK
+        uuid order_id FK
+        uuid product_id FK
+        integer quantity
+        decimal unit_price
+    }
+
+    PRODUCTS {
+        uuid id PK
+        string slug UK
+        string name
+        decimal price
+        boolean in_stock
+    }

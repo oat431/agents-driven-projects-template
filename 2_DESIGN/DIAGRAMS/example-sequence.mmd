@@ -1,0 +1,47 @@
+sequenceDiagram
+    participant C as Client
+    participant GW as API Gateway
+    participant Auth as Auth Service
+    participant DB as PostgreSQL
+    participant R as Redis
+    participant N as Notification Svc
+
+    C->>GW: POST /auth/login { email, password }
+    GW->>Auth: Forward request
+
+    Auth->>DB: SELECT user WHERE email
+    DB-->>Auth: User row
+
+    Auth->>Auth: bcrypt.verify(password)
+
+    alt 2FA enabled
+        Auth->>Auth: Issue partialToken (scope: 2fa_verify, TTL: 5min)
+        Auth-->>GW: 200 { partialToken, requires2fa: true }
+        GW-->>C: 2FA required
+
+        C->>GW: POST /auth/2fa/authenticate { code, partialToken }
+        GW->>Auth: Verify request
+
+        Auth->>DB: SELECT encrypted_secret WHERE user_id
+        DB-->>Auth: Encrypted secret
+
+        Auth->>Auth: Decrypt secret
+        Auth->>Auth: Verify TOTP(secret, code) ±1 window
+
+        Auth->>R: Check rate limit (5 attempts / 15 min)
+
+        Auth->>Auth: Issue accessToken + refreshToken
+        Auth-->>GW: 200 { accessToken, refreshToken }
+        GW-->>C: Login successful
+
+    else 2FA disabled
+        Auth->>Auth: Issue accessToken + refreshToken
+        Auth-->>GW: 200 { accessToken, refreshToken }
+        GW-->>C: Login successful
+    end
+
+    opt Login failed
+        Auth->>R: Increment rate limit counter
+        Auth-->>GW: 401 Invalid credentials
+        GW-->>C: Error
+    end
